@@ -1,26 +1,108 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
 header {
-  padding: 16px 32px;
-  border-bottom: 1px solid #ddd;
-  height: var(--fixed-header-height);
+  padding: 2.4rem 4.8rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  height: var(--fixed-header-height);
+  position: fixed;
+  z-index: var(--header-z);
+  background-color: #fff;
+  font-size: 1.6rem;
+  border-radius: 50rem;
+  width: calc(100% - calc(var(--padding-inline) * 2));
+  max-width: 1400px;
+  margin-top: 2.4rem;
 }
 
 nav {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 nav a {
-  text-decoration: none;
-  color: #555;
-  font-size: 15px;
+  background-color: #f2f3f7;
+  color: #000;
+  border-radius: 50rem;
+  padding: 0.4rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+nav a span {
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 0.8rem;
+  transition: 0.4s;
+}
+nav a p {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: 0.4s;
+}
+nav a p.visible {
+  max-width: 120px;
+  margin-right: 1.2rem;
+  margin-left: 0.8rem;
+  opacity: 1;
+}
+nav a:hover {
+  color: #d01f1f;
+}
+nav a:active span {
+  background-color: #d01f1f;
+  color: #fff;
 }
 
 nav a.active-link {
-  color: #000;
+  color: #d01f1f;
   font-weight: 600;
-  border-bottom: 2px solid #000;
-  padding-bottom: 2px;
+  /* border-color: #d01f1f; */
+}
+
+nav a.active-link span {
+  background-color: #d01f1f;
+  color: #fff;
+}
+.enter-animation {
+  animation: slide-fade 1s;
+}
+.leave-animation {
+  animation: slide-fade-out 1s;
+}
+@keyframes slide-fade {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+    font-size: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    font-size: 1.6rem;
+    margin-right: 1.2rem;
+    margin-left: 0.8rem;
+  }
+}
+@keyframes slide-fade-out {
+  from {
+  }
+  to {
+    opacity: 0;
+    font-size: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
 }

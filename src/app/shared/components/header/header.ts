@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { BehaviorSubject } from 'rxjs';
+import { NavigationService } from '../../../core/services/navigation';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive],
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
 export class Header {
-  links = [
-    { label: 'Lobby', path: '/lobby' },
-    { label: 'Guide', path: '/guide' },
-    { label: 'Heroes', path: '/heroes' },
-  ];
+  private navService = inject(NavigationService);
+
+  links = this.navService.links;
+  activeLabel$ = this.navService.activeLabel$;
+  hoveredLabel$ = new BehaviorSubject<string>('');
 }

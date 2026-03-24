@@ -1,7 +1,7 @@
 :root {
   --padding-inline: 4.8rem;
   --padding-inline-mobile: 1.6rem;
-  --fixed-header-height: 8.4rem;
+  --fixed-header-height: 6.4rem;
 
   --single-z: 1;
   --header-z: 2;
@@ -106,7 +106,7 @@ html {
 }
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: var(--background-color);
+  background-color: #d9dae3;
   color: var(--text-color);
   overflow-x: hidden; /* Only prevent horizontal scroll */
   overflow-y: auto;
@@ -142,8 +142,7 @@ a:focus {
   outline: none;
 }
 .material-symbols-outlined {
-  width: 24px;
-  height: 24px;
+  font-size: 1.8rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -152,12 +151,16 @@ a:focus {
 main {
   display: flex;
   flex: 1;
-  padding: calc(var(--fixed-header-height) + 2.4rem) var(padding-inline) 2.4rem var(padding-inline);
+  padding: calc(var(--fixed-header-height) + 4.8rem) 0 2.4rem 0;
+  font-size: 1.6rem;
   overflow: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
 @media (max-width: 475px) {
   main {
-    padding: calc(var(--fixed-header-height) + 2.4rem) var(--padding-inline-mobile) 2.4rem
+    padding: calc(var(--fixed-header-height) + 4.8rem) var(--padding-inline-mobile) 2.4rem
       var(--padding-inline-mobile);
   }
 }

@@ -1,13 +1,28 @@
 <header>
+  <!-- <app-logo></app-logo> -->
+  <p>stratos</p>
   <nav>
     @for (link of links; track link.path) {
       <a
         [routerLink]="link.path"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: false }"
+        (mouseenter)="hoveredLabel$.next(link.label)"
+        (mouseleave)="hoveredLabel$.next('')"
       >
-        {{ link.label }}
+        <span class="material-symbols-outlined">{{ link.icon }}</span>
+        <p
+          [class.visible]="
+            (hoveredLabel$ | async) === link.label || (activeLabel$ | async) === link.label
+          "
+        >
+          {{ link.label }}
+        </p>
       </a>
     }
   </nav>
+  <div class="header-btns">
+    <button>Register</button>
+    <button>theme</button>
+  </div>
 </header>
