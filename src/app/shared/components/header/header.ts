@@ -3,11 +3,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { NavigationService } from '../../../core/services/navigation';
+import { Logo } from '../logo/logo';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule, Logo],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

@@ -1,6 +1,7 @@
 <header>
-  <!-- <app-logo></app-logo> -->
-  <p>stratos</p>
+  <a [routerLink]="'/lobby'">
+    <app-logo></app-logo>
+  </a>
   <nav>
     @for (link of links; track link.path) {
       <a
@@ -22,7 +23,7 @@
     }
   </nav>
   <div class="header-btns">
-    <button>Register</button>
-    <button>theme</button>
+    <a class="authBtn" [routerLink]="'/register'">Register</a>
+    <span tabindex="0" class="material-symbols-outlined"> dark_mode </span>
   </div>
 </header>
