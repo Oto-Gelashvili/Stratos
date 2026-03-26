@@ -1,0 +1,12 @@
+.logo-icon {
+  display: none;
+}
+
+@media (max-width: 375px) {
+  .logo-full {
+    display: none;
+  }
+  .logo-icon {
+    display: block;
+  }
+}

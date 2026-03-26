@@ -81,38 +81,7 @@ nav a.active-link span {
   background-color: #d01f1f;
   color: #fff;
 }
-.enter-animation {
-  animation: slide-fade 1s;
-}
-.leave-animation {
-  animation: slide-fade-out 1s;
-}
-@keyframes slide-fade {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-    font-size: 0;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    font-size: 1.6rem;
-    margin-right: 1.2rem;
-    margin-left: 0.8rem;
-  }
-}
-@keyframes slide-fade-out {
-  from {
-  }
-  to {
-    opacity: 0;
-    font-size: 0;
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
+
 .header-btns {
   display: flex;
   align-items: center;
@@ -172,5 +141,12 @@ nav a.active-link span {
   .header-btns span {
     padding: 0 0.8rem;
     height: 3.6rem;
+  }
+}
+@media (max-width: 768px) {
+  .authBtn,
+  .themeSpan,
+  nav {
+    display: none;
   }
 }

@@ -1,0 +1,127 @@
+.menuSpan {
+  border-radius: 50%;
+  background-color: #000;
+  transition: 0.4s;
+  color: #fff;
+  font-size: 2rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.4s;
+  user-select: none;
+  display: none;
+  padding: 0 0.8rem;
+  height: 3.6rem;
+}
+.menuSpan:hover,
+.menuSpan:focus {
+  border-color: #000;
+  color: #000;
+  background-color: transparent;
+}
+.menuSpan:active {
+  border-color: #d01f1f;
+  color: #d01f1f;
+}
+.menu {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  padding-block: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-radius: 12px;
+  top: calc(100% + 1.2rem);
+  right: 0;
+  color: #000;
+  width: 240px;
+  /* 4.8rem is headers top padding + 1.2rem that adds to top position of menu and 1.2rem for space on bottom */
+  max-height: calc(100vh - var(--fixed-header-height) - 4.8rem);
+  overflow-y: auto;
+}
+.username {
+  font-weight: 600;
+  border-bottom: 1px solid #aaa;
+}
+li a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: space-between;
+  border-block: 1px solid transparent;
+}
+li a span {
+  font-size: 2rem;
+}
+li a:hover,
+li a:focus {
+  color: #d01f1f;
+  border-block-color: #d01f1f;
+}
+li a:hover:active {
+  background-color: #d01f1f;
+  color: #fff;
+}
+ul li > * {
+  padding: 0.8rem 1.6rem;
+  transition: 0.4s;
+}
+.signBtn {
+  background-color: #000;
+  color: #fff;
+  padding: 0.4rem 1.6rem;
+  border: 1px solid transparent;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.4s;
+}
+.signBtn:hover,
+.signBtn:focus {
+  border-color: #000;
+  color: #000;
+  background-color: transparent;
+}
+.signBtn:active {
+  background-color: #d01f1f;
+  color: #fff;
+  border-color: transparent;
+}
+
+.enter-animation {
+  animation: slide-fade 1s;
+}
+.leave-animation {
+  animation: slide-fade-out 1s;
+}
+@keyframes slide-fade {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  25% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-fade-out {
+  from {
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+@media (max-width: 768px) {
+  .menuSpan {
+    display: flex;
+  }
+}
+@media (max-width: 475px) {
+  .menu {
+    width: 100%;
+  }
+}

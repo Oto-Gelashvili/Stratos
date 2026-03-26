@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { NavigationService } from '../../../core/services/navigation';
 import { Logo } from '../logo/logo';
+import { HamburgerMenu } from './hamburger-menu/hamburger-menu';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule, Logo],
+  imports: [RouterLink, RouterLinkActive, CommonModule, Logo, HamburgerMenu],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

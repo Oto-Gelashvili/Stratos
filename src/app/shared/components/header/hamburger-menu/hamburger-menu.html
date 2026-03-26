@@ -1,0 +1,22 @@
+<div #menu>
+  <span tabindex="0" class="material-symbols-outlined menuSpan"> menu </span>
+  @if (isMenuShown$ | async) {
+    <div class="menu" animate.enter="enter-animation" animate.leave="leave-animation">
+      <ul>
+        <li><p class="username">Guest</p></li>
+        @for (link of navService.links; track link.path) {
+          <li>
+            <a [routerLink]="link.path" routerLinkActive="active-link">
+              <p>{{ link.label }}</p>
+              <span class="material-symbols-outlined themeSpan">{{ link.icon }}</span>
+            </a>
+          </li>
+        }
+        <!-- <li><p>Theme</p></li> -->
+        <li>
+          <div class="btnCont"><button class="signBtn">Register</button></div>
+        </li>
+      </ul>
+    </div>
+  }
+</div>
