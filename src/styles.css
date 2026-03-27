@@ -1,4 +1,14 @@
 :root {
+  --primary-color: #d01f1f;
+  --secondary-color: #000000;
+  --background-color: #d9dae3;
+  --text-color: #000000;
+  --contrast-color: #fff;
+  --accent-color: #f2f3f7;
+  --border-color: #aaa;
+  --error: #d01f1f;
+  --success: #44bba4;
+
   --padding-inline: 4.8rem;
   --padding-inline-mobile: 1.6rem;
   --fixed-header-height: 6.4rem;
@@ -8,6 +18,44 @@
   --most-z: 100;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: #d01f1f;
+    --secondary-color: #000000;
+    --background-color: #d9dae3;
+    --text-color: #000000;
+    --contrast-color: #fff;
+    --accent-color: #f2f3f7;
+    --border-color: #aaa;
+    --error: #d01f1f;
+    --success: #44bba4;
+  }
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+  --primary-color: #d01f1f;
+  --secondary-color: #000000;
+  --background-color: #d9dae3;
+  --text-color: #000000;
+  --contrast-color: #fff;
+  --accent-color: #f2f3f7;
+  --border-color: #aaa;
+  --error: #d01f1f;
+  --success: #44bba4;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --primary-color: #d01f1f;
+  --secondary-color: #fff;
+  --background-color: #000;
+  --text-color: #d9dae3;
+  --contrast-color: #000;
+  --accent-color: #0f0f0f;
+  --border-color: #aaa;
+  --error: #d01f1f;
+  --success: #44bba4;
+}
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
@@ -106,7 +154,7 @@ html {
 }
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #d9dae3;
+  background-color: var(--background-color);
   color: var(--text-color);
   overflow-x: hidden; /* Only prevent horizontal scroll */
   overflow-y: auto;

@@ -1,8 +1,8 @@
 .menuSpan {
   border-radius: 50%;
-  background-color: #000;
+  background-color: var(--secondary-color);
   transition: 0.4s;
-  color: #fff;
+  color: var(--contrast-color);
   font-size: 2rem;
   border: 1px solid transparent;
   cursor: pointer;
@@ -14,18 +14,18 @@
 }
 .menuSpan:hover,
 .menuSpan:focus {
-  border-color: #000;
-  color: #000;
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
   background-color: transparent;
 }
 .menuSpan:active {
-  border-color: #d01f1f;
-  color: #d01f1f;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 .menu {
   position: absolute;
-  background-color: #fff;
-  border: 1px solid #aaa;
+  background-color: var(--contrast-color);
+  border: 1px solid var(--border-color);
   padding-block: 0.4rem;
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@
   border-radius: 12px;
   top: calc(100% + 1.2rem);
   right: 0;
-  color: #000;
+  color: var(--secondary-color);
   width: 240px;
   /* 4.8rem is headers top padding + 1.2rem that adds to top position of menu and 1.2rem for space on bottom */
   max-height: calc(100vh - var(--fixed-header-height) - 4.8rem);
@@ -41,7 +41,7 @@
 }
 .username {
   font-weight: 600;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid var(--border-color);
 }
 li a {
   display: flex;
@@ -55,20 +55,20 @@ li a span {
 }
 li a:hover,
 li a:focus {
-  color: #d01f1f;
-  border-block-color: #d01f1f;
+  color: var(--primary-color);
+  border-block-color: var(--primary-color);
 }
 li a:hover:active {
-  background-color: #d01f1f;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--contrast-color);
 }
 ul li > * {
   padding: 0.8rem 1.6rem;
   transition: 0.4s;
 }
 .signBtn {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--secondary-color);
+  color: var(--contrast-color);
   padding: 0.4rem 1.6rem;
   border: 1px solid transparent;
   width: 100%;
@@ -78,13 +78,13 @@ ul li > * {
 }
 .signBtn:hover,
 .signBtn:focus {
-  border-color: #000;
-  color: #000;
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
   background-color: transparent;
 }
 .signBtn:active {
-  background-color: #d01f1f;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--contrast-color);
   border-color: transparent;
 }
 

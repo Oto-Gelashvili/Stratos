@@ -11,7 +11,7 @@ header {
   height: var(--fixed-header-height);
   position: fixed;
   z-index: var(--header-z);
-  background-color: #fff;
+  background-color: var(--contrast-color);
   font-size: 1.6rem;
   border-radius: 50rem;
   width: calc(100% - calc(var(--padding-inline) * 2));
@@ -26,7 +26,7 @@ nav {
 }
 
 nav a {
-  background-color: #f2f3f7;
+  background-color: var(--accent-color);
   color: #000;
   border-radius: 50rem;
   padding: 0.4rem;
@@ -39,7 +39,7 @@ nav a {
 }
 nav a span {
   border-radius: 50%;
-  background-color: #fff;
+  background-color: var(--contrast-color);
   padding: 0.8rem;
   transition: 0.4s;
 }
@@ -58,28 +58,28 @@ nav a p.visible {
   opacity: 1;
 }
 nav a:hover {
-  color: #d01f1f;
+  color: var(--primary-color);
 }
 
 nav a.active-link {
-  color: #d01f1f;
+  color: var(--primary-color);
   font-weight: 600;
 }
 nav a:active span,
 nav a.active-link:focus span {
-  background-color: #fff;
-  color: #d01f1f;
+  background-color: var(--contrast-color);
+  color: var(--primary-color);
 }
 nav a:focus {
-  background-color: #d01f1f;
+  background-color: var(--primary-color);
 }
 nav a:focus p {
-  color: #fff;
+  color: var(--contrast-color);
 }
 
 nav a.active-link span {
-  background-color: #d01f1f;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--contrast-color);
 }
 
 .header-btns {
@@ -88,8 +88,8 @@ nav a.active-link span {
   gap: 0.4rem;
 }
 .authBtn {
-  background-color: #d01f1f;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--contrast-color);
   padding: 0.8rem 2.4rem;
   border-radius: 50rem;
   border: 1px solid transparent;
@@ -101,36 +101,13 @@ nav a.active-link span {
 }
 .authBtn:hover,
 .authBtn:focus {
-  border-color: #d01f1f;
-  color: #d01f1f;
-  background-color: #fff;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--contrast-color);
 }
 .authBtn:active {
-  border-color: #000;
-  color: #000;
-}
-.header-btns span {
-  border-radius: 50%;
-  background-color: #000;
-  padding: 1.2rem;
-  transition: 0.4s;
-  color: #fff;
-  font-size: 2rem;
-  border: 1px solid transparent;
-  height: 4.4rem;
-  cursor: pointer;
-  transition: 0.4s;
-  user-select: none;
-}
-.header-btns span:hover,
-.header-btns span:focus {
-  border-color: #000;
-  color: #000;
-  background-color: transparent;
-}
-.header-btns span:active {
-  border-color: #d01f1f;
-  color: #d01f1f;
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 @media (max-width: 1024px) {
@@ -138,14 +115,9 @@ nav a.active-link span {
     padding: 0 1.2rem;
     height: 3.6rem;
   }
-  .header-btns span {
-    padding: 0 0.8rem;
-    height: 3.6rem;
-  }
 }
 @media (max-width: 768px) {
   .authBtn,
-  .themeSpan,
   nav {
     display: none;
   }

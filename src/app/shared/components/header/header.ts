@@ -5,11 +5,12 @@ import { BehaviorSubject } from 'rxjs';
 import { NavigationService } from '../../../core/services/navigation';
 import { Logo } from '../logo/logo';
 import { HamburgerMenu } from './hamburger-menu/hamburger-menu';
+import { ThemeSwitcher } from './theme-switcher/theme-switcher';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule, Logo, HamburgerMenu],
+  imports: [RouterLink, RouterLinkActive, CommonModule, Logo, HamburgerMenu, ThemeSwitcher],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

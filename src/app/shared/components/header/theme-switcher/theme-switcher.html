@@ -1,0 +1,9 @@
+<button class="theme-btn" (click)="setTheme()">
+  <span class="material-symbols-outlined">
+    @if (icon === 'dark_mode') {
+      <p animate.enter="riseUp" animate.leave="riseDown">dark_mode</p>
+    } @else {
+      <p animate.enter="riseUp" animate.leave="riseDown">light_mode</p>
+    }
+  </span>
+</button>
