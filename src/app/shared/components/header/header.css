@@ -118,7 +118,8 @@ nav a.active-link span {
 }
 @media (max-width: 768px) {
   .authBtn,
-  nav {
+  nav,
+  .themeSwitcher {
     display: none;
   }
 }

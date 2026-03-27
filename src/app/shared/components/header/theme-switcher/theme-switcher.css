@@ -1,3 +1,26 @@
+:host-context(.menuSwitcher) .theme-btn span {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  color: var(--secondary-color);
+}
+:host-context(.menuSwitcher) .theme-btn span:hover {
+  color: var(--primary-color);
+  border-color: transparent;
+}
+:host-context(.menuSwitcher) .theme-btn span:active {
+  color: var(--primary-color);
+  border-color: transparent;
+  transform: scale(1.1);
+}
+:host-context(.menuSwitcher) .theme-btn span:active {
+  color: var(--primary-color);
+  border-color: transparent;
+  transform: scale(1.1);
+}
+:host-context(.menuSwitcher) .theme-btn:focus-visible span {
+  border-color: var(--secondary-color);
+}
 .theme-btn {
   background: none;
   border: none;
@@ -76,10 +99,5 @@ p {
     padding: 0 0.8rem;
     height: 3.6rem;
     width: 3.6rem;
-  }
-}
-@media (max-width: 768px) {
-  span {
-    display: none;
   }
 }

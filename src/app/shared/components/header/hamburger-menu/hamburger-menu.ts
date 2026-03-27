@@ -3,10 +3,11 @@ import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angula
 import { filter, fromEvent, map, merge, Observable, scan, startWith, Subject } from 'rxjs';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NavigationService } from '../../../../core/services/navigation';
+import { ThemeSwitcher } from '../theme-switcher/theme-switcher';
 
 @Component({
   selector: 'app-hamburger-menu',
-  imports: [AsyncPipe, RouterLink, RouterLinkActive],
+  imports: [AsyncPipe, RouterLink, RouterLinkActive, ThemeSwitcher],
   templateUrl: './hamburger-menu.html',
   styleUrl: './hamburger-menu.css',
 })

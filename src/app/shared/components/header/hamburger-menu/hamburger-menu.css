@@ -39,9 +39,22 @@
   max-height: calc(100vh - var(--fixed-header-height) - 4.8rem);
   overflow-y: auto;
 }
+.themeLi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.8rem 1.6rem;
+  transition: 0.4s;
+}
+.themeSwitcher .theme-btn span {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  color: var(--contrast-color);
+}
 .username {
   font-weight: 600;
-  border-bottom: 1px solid var(--border-color);
 }
 li a {
   display: flex;
@@ -53,18 +66,28 @@ li a {
 li a span {
   font-size: 2rem;
 }
+
 li a:hover,
 li a:focus {
   color: var(--primary-color);
   border-block-color: var(--primary-color);
 }
+li:nth-child(2) a:hover {
+  border-top-color: transparent;
+}
+li:nth-child(4) a:hover {
+  border-bottom-color: transparent;
+}
 li a:hover:active {
   background-color: var(--primary-color);
   color: var(--contrast-color);
 }
-ul li > * {
+ul li:not(.themeLi) > * {
   padding: 0.8rem 1.6rem;
   transition: 0.4s;
+}
+.btnCont {
+  border-top: 1px solid var(--border-color);
 }
 .signBtn {
   background-color: var(--secondary-color);
@@ -115,6 +138,7 @@ ul li > * {
     transform: translateX(100%);
   }
 }
+
 @media (max-width: 768px) {
   .menuSpan {
     display: flex;
