@@ -26,8 +26,8 @@ nav {
 }
 
 nav a {
-  background-color: var(--accent-color);
-  color: #000;
+  background-color: var(--surface-color);
+  color: var(--text-color);
   border-radius: 50rem;
   padding: 0.4rem;
   justify-content: center;
@@ -74,12 +74,12 @@ nav a:focus {
   background-color: var(--primary-color);
 }
 nav a:focus p {
-  color: var(--contrast-color);
+  color: #fff;
 }
 
 nav a.active-link span {
   background-color: var(--primary-color);
-  color: var(--contrast-color);
+  color: #fff;
 }
 
 .header-btns {
@@ -89,7 +89,7 @@ nav a.active-link span {
 }
 .authBtn {
   background-color: var(--primary-color);
-  color: var(--contrast-color);
+  color: #fff;
   padding: 0.8rem 2.4rem;
   border-radius: 50rem;
   border: 1px solid transparent;

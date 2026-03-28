@@ -4,7 +4,7 @@
   --background-color: #d9dae3;
   --text-color: #000000;
   --contrast-color: #fff;
-  --accent-color: #f2f3f7;
+  --surface-color: #f2f3f7;
   --border-color: #aaa;
   --error: #d01f1f;
   --success: #44bba4;
@@ -18,19 +18,6 @@
   --most-z: 100;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --primary-color: #d01f1f;
-    --secondary-color: #000000;
-    --background-color: #d9dae3;
-    --text-color: #000000;
-    --contrast-color: #fff;
-    --accent-color: #f2f3f7;
-    --border-color: #aaa;
-    --error: #d01f1f;
-    --success: #44bba4;
-  }
-}
 :root[data-theme='light'] {
   color-scheme: light;
   --primary-color: #d01f1f;
@@ -38,7 +25,7 @@
   --background-color: #d9dae3;
   --text-color: #000000;
   --contrast-color: #fff;
-  --accent-color: #f2f3f7;
+  --surface-color: #f2f3f7;
   --border-color: #aaa;
   --error: #d01f1f;
   --success: #44bba4;
@@ -46,12 +33,12 @@
 
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --primary-color: #d01f1f;
+  --primary-color: #9911de;
   --secondary-color: #fff;
-  --background-color: #000;
-  --text-color: #d9dae3;
+  --background-color: #111;
+  --text-color: #fff;
   --contrast-color: #000;
-  --accent-color: #0f0f0f;
+  --surface-color: #111;
   --border-color: #aaa;
   --error: #d01f1f;
   --success: #44bba4;
@@ -155,7 +142,7 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text);
   overflow-x: hidden; /* Only prevent horizontal scroll */
   overflow-y: auto;
 }
