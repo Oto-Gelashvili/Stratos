@@ -1,9 +1,9 @@
-.auth-container {
-  min-height: calc(100vh - var(--fixed-header-height));
+:host {
+  flex: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: var(--fixed-header-height) var(--padding-inline) 4.8rem;
+  flex-direction: column;
+  align-items: center;
 }
 
 .auth-card {
