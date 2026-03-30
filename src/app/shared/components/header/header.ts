@@ -6,6 +6,7 @@ import { NavigationService } from '../../../core/services/navigation';
 import { Logo } from '../logo/logo';
 import { HamburgerMenu } from './hamburger-menu/hamburger-menu';
 import { ThemeSwitcher } from './theme-switcher/theme-switcher';
+import { SupabaseService } from '../../../core/services/supabase.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,8 @@ import { ThemeSwitcher } from './theme-switcher/theme-switcher';
 })
 export class Header {
   private navService = inject(NavigationService);
-
+  private readonly supabase = inject(SupabaseService);
+  readonly vm$ = this.supabase.vm$;
   links = this.navService.links;
   activeLabel$ = this.navService.activeLabel$;
   hoveredLabel$ = new BehaviorSubject<string>('');

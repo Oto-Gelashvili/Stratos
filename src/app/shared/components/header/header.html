@@ -23,7 +23,15 @@
     }
   </nav>
   <div class="header-btns">
-    <a class="authBtn" routerLink="/auth">Register</a>
+    @if (vm$ | async; as vm) {
+      @if (!vm.user) {
+        <a class="authBtn" routerLink="/auth">Register</a>
+      } @else {
+        <a routerLink="/profile">
+          <img [src]="vm.avatarUrl || '/assets/default-avatar.png'" class="avatar" />
+        </a>
+      }
+    }
     <app-theme-switcher class="themeSwitcher"></app-theme-switcher>
     <app-hamburger-menu></app-hamburger-menu>
   </div>
