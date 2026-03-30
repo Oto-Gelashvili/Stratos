@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,7 @@ export const routes: Routes = [
       },
       {
         path: 'profile',
+        canMatch: [authGuard],
         loadComponent: () => import('./features/profile/profile').then((m) => m.Profile),
       },
     ],

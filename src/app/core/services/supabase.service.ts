@@ -7,7 +7,7 @@ import { BehaviorSubject, from, map, Observable } from 'rxjs';
 export class SupabaseService {
   private supabase: SupabaseClient = createClient(environment.supabaseUrl, environment.supabaseKey);
 
-  private user$ = new BehaviorSubject<any>(null);
+  private user$ = new BehaviorSubject<any | undefined>(undefined);
   readonly user = this.user$.asObservable();
 
   constructor() {
