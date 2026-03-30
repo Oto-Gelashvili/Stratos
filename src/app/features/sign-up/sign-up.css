@@ -5,7 +5,10 @@
   flex-direction: column;
   align-items: center;
 }
-
+h1 {
+  font-size: 2.4rem;
+  font-weight: 900;
+}
 .auth-card {
   background-color: var(--contrast-color);
   border: 1px solid var(--border-color);
@@ -16,26 +19,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3.2rem;
+  gap: 1.6rem;
 }
 
 .auth-header {
   text-align: center;
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 0.8rem;
 }
 
-.auth-header h1 {
-  font-size: 2.4rem;
-  font-weight: 600;
-  color: var(--text-color);
-}
-
 .auth-header p {
-  font-size: 1.4rem;
-  color: var(--secondary-color);
-  opacity: 0.6;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
 .auth-body {
@@ -70,12 +68,12 @@
 
 .auth-footer {
   font-size: 1.2rem;
-  color: var(--secondary-color);
-  opacity: 0.5;
+  color: var(--text-color);
+  opacity: 0.6;
   text-align: center;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 475px) {
   .auth-card {
     padding: 3.2rem 2.4rem;
     border-radius: 16px;

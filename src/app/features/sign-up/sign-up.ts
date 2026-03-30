@@ -2,11 +2,12 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { AuthService } from '../../core/services/auth.service';
+import { Logo } from '../../shared/components/logo/logo';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [],
+  imports: [Logo],
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.css',
 })
