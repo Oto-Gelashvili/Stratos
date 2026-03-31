@@ -24,6 +24,24 @@
             </a>
           </li>
         }
+        @if (vm$ | async; as vm) {
+          @if (vm.user) {
+            <li>
+              <a routerLink="profile" routerLinkActive="active-link">
+                <p>Profile</p>
+                @if (vm.loading) {
+                  <div class="avatar skeleton"></div>
+                } @else if (!vm.avatarUrl) {
+                  <div class="avatar">
+                    <p>{{ vm.username?.slice(0, 1)?.toUpperCase() }}</p>
+                  </div>
+                } @else {
+                  <img tabindex="0" [src]="vm.avatarUrl" class="avatar" />
+                }
+              </a>
+            </li>
+          }
+        }
         <li>
           <div class="btnCont">
             @if (vm$ | async; as vm) {

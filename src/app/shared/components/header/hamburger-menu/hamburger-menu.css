@@ -77,24 +77,29 @@ li a:not(.signLink) span {
 }
 
 li a:not(.signLink):hover,
+li a.active-link,
 li a:not(.signLink):focus {
   color: var(--primary-color);
   border-block-color: var(--primary-color);
 }
-li:nth-child(2) a:hover {
+li:nth-child(2) a:hover,
+li:nth-child(2) a.active-link {
   border-top-color: transparent;
 }
-li:nth-child(4) a:hover {
+li:nth-last-child(2) a:hover,
+li:nth-last-child(2) a.active-link {
   border-bottom-color: transparent;
 }
 li a:not(.signLink):hover:active {
   background-color: var(--primary-color);
   color: var(--contrast-color);
 }
+
 ul li:not(.themeLi) > * {
   padding: 0.8rem 1.6rem;
   transition: 0.4s;
 }
+
 .btnCont {
   border-top: 1px solid var(--border-color);
 }
@@ -126,6 +131,7 @@ ul li:not(.themeLi) > * {
 .leave-animation {
   animation: slide-fade-out 1s;
 }
+
 @keyframes slide-fade {
   0% {
     opacity: 0;
@@ -148,6 +154,18 @@ ul li:not(.themeLi) > * {
   }
 }
 
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1.8rem;
+  transition: 0.4s;
+}
+.avatar:hover,
+.avatar:focus-visible {
+  transform: scale(1.05);
+}
 @media (max-width: 768px) {
   .menuSpan {
     display: flex;
