@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { filter, fromEvent, map, merge, Observable, scan, startWith, Subject } from 'rxjs';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NavigationService } from '../../../../core/services/navigation';
 import { ThemeSwitcher } from '../theme-switcher/theme-switcher';
 import { SupabaseService } from '../../../../core/services/supabase.service';
@@ -16,6 +16,8 @@ export class HamburgerMenu {
   private readonly elementRef = inject(ElementRef);
   protected readonly navService = inject(NavigationService);
   private readonly supabase = inject(SupabaseService);
+  private readonly router = inject(Router);
+
   vm$ = this.supabase.vm$;
   private readonly documentClick$ = fromEvent<MouseEvent>(document, 'click');
 
@@ -35,4 +37,15 @@ export class HamburgerMenu {
     }, false),
     startWith(false),
   );
+  signOut() {
+    this.supabase.signOut().subscribe({
+      next: () => {
+        this.router.navigate(['/lobby']);
+        console.log('show success noty');
+      },
+      error: (err) => {
+        console.error('Sign out failed', err);
+      },
+    });
+  }
 }

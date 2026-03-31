@@ -65,19 +65,19 @@
   width: 150px;
 }
 
-li a {
+li a:not(.signLink) {
   display: flex;
   align-items: center;
   gap: 0.4rem;
   justify-content: space-between;
   border-block: 1px solid transparent;
 }
-li a span {
+li a:not(.signLink) span {
   font-size: 2rem;
 }
 
-li a:hover,
-li a:focus {
+li a:not(.signLink):hover,
+li a:not(.signLink):focus {
   color: var(--primary-color);
   border-block-color: var(--primary-color);
 }
@@ -87,7 +87,7 @@ li:nth-child(2) a:hover {
 li:nth-child(4) a:hover {
   border-bottom-color: transparent;
 }
-li a:hover:active {
+li a:not(.signLink):hover:active {
   background-color: var(--primary-color);
   color: var(--contrast-color);
 }
@@ -116,7 +116,7 @@ ul li:not(.themeLi) > * {
 }
 .signBtn:active {
   background-color: var(--primary-color);
-  color: var(--contrast-color);
+  color: #fff;
   border-color: transparent;
 }
 

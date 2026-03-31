@@ -28,9 +28,9 @@
           <div class="btnCont">
             @if (vm$ | async; as vm) {
               @if (vm.user) {
-                <button class="signBtn">Log out</button>
+                <button class="signBtn" (click)="signOut()">Log out</button>
               } @else {
-                <button class="signBtn">Register</button>
+                <a routerLink="auth" class="signLink"><button class="signBtn">Register</button></a>
               }
             }
           </div>
