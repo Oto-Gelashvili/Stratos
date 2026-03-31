@@ -55,7 +55,16 @@
 }
 .username {
   font-weight: 600;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+.skeleton {
+  border-radius: 6px;
+  width: 150px;
+}
+
 li a {
   display: flex;
   align-items: center;

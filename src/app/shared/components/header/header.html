@@ -30,9 +30,11 @@
         @if (vm.loading) {
           <div class="avatar skeleton"></div>
         } @else if (!vm.avatarUrl) {
-          <div class="avatar">
-            <p>{{ vm.username?.slice(0, 1)?.toUpperCase() }}</p>
-          </div>
+          <a routerLink="/profile">
+            <div class="avatar">
+              <p>{{ vm.username?.slice(0, 1)?.toUpperCase() }}</p>
+            </div>
+          </a>
         } @else {
           <a routerLink="/profile">
             <img tabindex="0" [src]="vm.avatarUrl" class="avatar" />

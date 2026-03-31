@@ -4,6 +4,7 @@ import { filter, fromEvent, map, merge, Observable, scan, startWith, Subject } f
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NavigationService } from '../../../../core/services/navigation';
 import { ThemeSwitcher } from '../theme-switcher/theme-switcher';
+import { SupabaseService } from '../../../../core/services/supabase.service';
 
 @Component({
   selector: 'app-hamburger-menu',
@@ -14,7 +15,8 @@ import { ThemeSwitcher } from '../theme-switcher/theme-switcher';
 export class HamburgerMenu {
   private readonly elementRef = inject(ElementRef);
   protected readonly navService = inject(NavigationService);
-
+  private readonly supabase = inject(SupabaseService);
+  vm$ = this.supabase.vm$;
   private readonly documentClick$ = fromEvent<MouseEvent>(document, 'click');
 
   protected readonly isMenuShown$ = this.documentClick$.pipe(

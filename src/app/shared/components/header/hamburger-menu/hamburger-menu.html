@@ -4,7 +4,16 @@
     <div class="menu" animate.enter="enter-animation" animate.leave="leave-animation">
       <ul>
         <li class="themeLi">
-          <p class="username">Guest</p>
+          @if (vm$ | async; as vm) {
+            @if (vm.loading) {
+              <p class="username skeleton"></p>
+            }
+            @if (vm.user) {
+              <p class="username">{{ vm.username }}</p>
+            } @else {
+              <p class="username">Guest</p>
+            }
+          }
           <app-theme-switcher class="menuSwitcher"></app-theme-switcher>
         </li>
         @for (link of navService.links; track link.path) {
@@ -16,7 +25,15 @@
           </li>
         }
         <li>
-          <div class="btnCont"><button class="signBtn">Register</button></div>
+          <div class="btnCont">
+            @if (vm$ | async; as vm) {
+              @if (vm.user) {
+                <button class="signBtn">Log out</button>
+              } @else {
+                <button class="signBtn">Register</button>
+              }
+            }
+          </div>
         </li>
       </ul>
     </div>
