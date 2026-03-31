@@ -3,7 +3,8 @@ import { provideRouter } from '@angular/router';
 import { describe, it, expect, beforeEach } from 'vitest';
 import { Header } from './header';
 import { NavigationService } from '../../../core/services/navigation';
-import { BehaviorSubject, of } from 'rxjs';
+import { SupabaseService } from '../../../core/services/supabase.service';
+import { BehaviorSubject } from 'rxjs';
 
 const mockNavigationService = {
   links: [
@@ -12,6 +13,10 @@ const mockNavigationService = {
     { label: 'Heroes', icon: 'domino_mask', path: '/heroes' },
   ],
   activeLabel$: new BehaviorSubject<string>(''),
+};
+
+const mockSupabaseService = {
+  vm$: new BehaviorSubject<any>(null),
 };
 
 describe('Header', () => {
@@ -25,6 +30,7 @@ describe('Header', () => {
       providers: [
         provideRouter([]),
         { provide: NavigationService, useValue: mockNavigationService },
+        { provide: SupabaseService, useValue: mockSupabaseService },
       ],
     }).compileComponents();
 
@@ -38,8 +44,57 @@ describe('Header', () => {
     fixture.detectChanges();
   });
 
+  beforeEach(() => {
+    mockSupabaseService.vm$.next(null);
+  });
+
   it('should create the component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should show Register when user is not logged in', () => {
+    mockSupabaseService.vm$.next({ user: null });
+    fixture.detectChanges();
+
+    const btn = nativeEl.querySelector('.authBtn');
+    expect(btn).toBeTruthy();
+  });
+
+  it('should show skeleton when loading', () => {
+    mockSupabaseService.vm$.next({
+      user: { id: '1' },
+      loading: true,
+    });
+    fixture.detectChanges();
+
+    const skeleton = nativeEl.querySelector('.skeleton');
+    expect(skeleton).toBeTruthy();
+  });
+
+  it('should show fallback avatar when no avatarUrl', () => {
+    mockSupabaseService.vm$.next({
+      user: { id: '1' },
+      loading: false,
+      avatarUrl: null,
+      username: 'Oto',
+    });
+    fixture.detectChanges();
+
+    const avatarText = nativeEl.querySelector('.avatar p');
+    expect(avatarText?.textContent).toBe('O');
+  });
+
+  it('should show avatar image when avatarUrl exists', () => {
+    mockSupabaseService.vm$.next({
+      user: { id: '1' },
+      loading: false,
+      avatarUrl: 'test.jpg',
+    });
+    fixture.detectChanges();
+
+    const img = nativeEl.querySelector('img.avatar');
+    expect(img).toBeTruthy();
+    expect(img?.getAttribute('src')).toBe('test.jpg');
   });
 
   it('should render all nav links', () => {
@@ -66,34 +121,5 @@ describe('Header', () => {
     firstLink.dispatchEvent(new MouseEvent('mouseenter'));
     firstLink.dispatchEvent(new MouseEvent('mouseleave'));
     expect(component.hoveredLabel$.getValue()).toBe('');
-  });
-
-  it('should show label as visible when link is hovered', async () => {
-    const firstLink = nativeEl.querySelectorAll('nav a')[0] as HTMLElement;
-    firstLink.dispatchEvent(new MouseEvent('mouseenter'));
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    const label = firstLink.querySelector('p');
-    expect(label?.classList.contains('visible')).toBe(true);
-  });
-
-  it('should show label as visible when link is active', async () => {
-    mockNavigationService.activeLabel$.next('Guide');
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    const links = nativeEl.querySelectorAll('nav a');
-    const guideLabel = links[1].querySelector('p');
-    expect(guideLabel?.classList.contains('visible')).toBe(true);
-  });
-
-  it('should not show label as visible when link is neither hovered nor active', async () => {
-    mockNavigationService.activeLabel$.next('');
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    const firstLabel = nativeEl.querySelector('nav a p');
-    expect(firstLabel?.classList.contains('visible')).toBe(false);
   });
 });

@@ -27,9 +27,17 @@
       @if (!vm.user) {
         <a class="authBtn" routerLink="/auth">Register</a>
       } @else {
-        <a routerLink="/profile">
-          <img [src]="vm.avatarUrl || '/assets/default-avatar.png'" class="avatar" />
-        </a>
+        @if (vm.loading) {
+          <div class="avatar skeleton"></div>
+        } @else if (!vm.avatarUrl) {
+          <div class="avatar">
+            <p>{{ vm.username?.slice(0, 1)?.toUpperCase() }}</p>
+          </div>
+        } @else {
+          <a routerLink="/profile">
+            <img tabindex="0" [src]="vm.avatarUrl" class="avatar" />
+          </a>
+        }
       }
     }
     <app-theme-switcher class="themeSwitcher"></app-theme-switcher>

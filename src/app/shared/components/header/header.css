@@ -110,10 +110,50 @@ nav a.active-link span {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
 }
+.avatar {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  text-align: center;
+  font-size: 1.8rem;
+  transition: 0.4s;
+}
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background-color);
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
 
+  background: linear-gradient(90deg, transparent, #ffffff80, transparent);
+
+  transform: translateX(-100%);
+  animation: shimmer 1s infinite;
+}
+:host-context([data-theme='dark']) .skeleton::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+}
+.avatar:hover,
+.avatar:focus-visible {
+  transform: scale(1.05);
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
 @media (max-width: 1024px) {
   .authBtn {
     padding: 0 1.2rem;
+    height: 3.6rem;
+  }
+  .avatar {
+    width: 3.6rem;
     height: 3.6rem;
   }
 }

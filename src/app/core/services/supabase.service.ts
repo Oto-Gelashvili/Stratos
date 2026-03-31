@@ -9,8 +9,10 @@ import {
   map,
   Observable,
   of,
+  startWith,
   switchMap,
 } from 'rxjs';
+import { Profile } from '../../models/profile.model';
 
 @Injectable({ providedIn: 'root' })
 export class SupabaseService {
@@ -55,12 +57,17 @@ export class SupabaseService {
 
   profile$ = this.user.pipe(
     switchMap((user) => {
-      if (!user) return of(null);
+      if (!user) return of<Profile | null>(null);
 
       return from(
-        this.supabase.from('profiles').select('avatar_url').eq('id', user.id).single(),
+        this.supabase
+          .from('profiles')
+          .select('avatar_url, full_name')
+          .eq('id', user.id)
+          .maybeSingle(),
       ).pipe(
-        map((res) => res.data),
+        map((res) => res.data as Profile),
+        startWith(undefined),
         catchError(() => of(null)),
       );
     }),
@@ -70,6 +77,8 @@ export class SupabaseService {
     map(([user, profile]) => ({
       user,
       avatarUrl: profile?.avatar_url ?? null,
+      username: profile?.full_name,
+      loading: profile === undefined,
     })),
   );
 }
