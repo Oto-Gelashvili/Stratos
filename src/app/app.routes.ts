@@ -11,19 +11,23 @@ export const routes: Routes = [
       {
         path: 'lobby',
         loadComponent: () => import('./features/lobby/lobby').then((m) => m.Lobby),
+        title: 'Lobby',
       },
       {
         path: 'guide',
         loadComponent: () => import('./features/guide/guide').then((m) => m.Guide),
+        title: 'Guide',
       },
       {
         path: 'heroes',
         loadComponent: () => import('./features/heroes/heroes').then((m) => m.Heroes),
+        title: 'Heroes',
       },
       {
         path: 'profile',
         canMatch: [authGuard],
         loadComponent: () => import('./features/profile/profile').then((m) => m.Profile),
+        title: 'Profile',
       },
     ],
   },
@@ -35,6 +39,7 @@ export const routes: Routes = [
       {
         path: 'auth',
         loadComponent: () => import('./features/sign-up/sign-up').then((m) => m.SignUp),
+        title: 'Auth',
       },
     ],
   },
